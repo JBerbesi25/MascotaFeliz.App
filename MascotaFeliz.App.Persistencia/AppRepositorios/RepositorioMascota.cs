@@ -12,7 +12,7 @@ namespace MascotaFeliz.App.Persistencia.AppRepositorios
         {
             mascotas = new List<Mascota>()
                     {
-                    new Mascota {Id=1, Nombre="Kirara", Propietario="jorge", Especie="canino", Raza="criollo"},
+                    new Mascota {Id=1, Nombre="Kiara", Propietario="jorge", Especie="canino", Raza="criollo"},
                     new Mascota {Id=2, Nombre="Itachi", Propietario="angela", Especie="canino", Raza="pitbull"},
                     new Mascota {Id=3, Nombre="Corage", Propietario="isabel", Especie="felino", Raza="criollo"},
                     };
@@ -28,6 +28,18 @@ namespace MascotaFeliz.App.Persistencia.AppRepositorios
         {
             return mascotas.SingleOrDefault(m => m.Id==MascotaId);
         }
-     }
-
+        public Mascota Update(Mascota mascotaActualizada)
+        {
+            var mascota= mascotas.SingleOrDefault(r => r.Id==mascotaActualizada.Id);
+            if(mascota!=null)
+            {
+                mascota.Nombre=mascotaActualizada.Nombre;
+                mascota.Propietario=mascotaActualizada.Propietario;
+                mascota.Especie=mascotaActualizada.Especie;
+                mascota.Raza=mascotaActualizada.Raza;
+            }
+            return mascota;
+        }
     }
+
+}

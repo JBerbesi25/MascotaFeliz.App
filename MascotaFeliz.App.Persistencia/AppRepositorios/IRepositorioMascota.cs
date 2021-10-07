@@ -10,5 +10,6 @@ namespace MascotaFeliz.App.Persistencia.AppRepositorios
         //IEnumerable<Mascota> GetMascotaPorFiltro(string filtro);
 
         Mascota GetMascotaPorId(int mascotaId);
+        Mascota Update(Mascota mascotaActualizada);
     }
  }
