@@ -5,7 +5,6 @@ namespace MascotaFeliz.App.Persistencia
 {
      public class AppContext : DbContext
     {
-        
         public DbSet<Persona> Personas {get;set;}
         public DbSet<Mascota> Mascotas {get;set;}
         public DbSet<Propietario> Propietarios {get;set;}
@@ -21,6 +20,4 @@ namespace MascotaFeliz.App.Persistencia
             }
         }
     }
-
-
 }

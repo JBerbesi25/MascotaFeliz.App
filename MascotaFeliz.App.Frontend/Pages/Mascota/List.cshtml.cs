@@ -7,16 +7,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using MascotaFeliz.App.Persistencia.AppRepositorios;
 using MascotaFeliz.App.Dominio;
 
-namespace MascotaFeliz.App.Frontend.Pages
+namespace MascotaFeliz.App.Frontend
 {
     public class ListModel : PageModel
     {
-         private readonly IRepositorioMascota repositorioMascota;
-        public IEnumerable<Mascota> Mascotas{get;set;}
+        private readonly IRepositorioMascota repositorioMascota;
+
+        public IEnumerable<Mascota> Mascotas { get; set; }
 
         public ListModel(IRepositorioMascota repositorioMascota)
         {
-            this.repositorioMascota=repositorioMascota;
+            this.repositorioMascota = repositorioMascota;
         }
         public void OnGet()
         {

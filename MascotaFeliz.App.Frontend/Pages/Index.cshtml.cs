@@ -10,7 +10,7 @@ namespace MascotaFeliz.App.Frontend.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -19,7 +19,6 @@ namespace MascotaFeliz.App.Frontend.Pages
 
         public void OnGet()
         {
-
         }
     }
 }

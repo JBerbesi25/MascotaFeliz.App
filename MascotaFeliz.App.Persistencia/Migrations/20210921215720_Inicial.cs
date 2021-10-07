@@ -52,10 +52,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     fecha_hora = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Visitas", x => x.Id);
-                });
+                constraints: table => table.PrimaryKey("PK_Visitas", x => x.Id));
 
             migrationBuilder.CreateIndex(
                 name: "IX_Personas_propietarioId",

@@ -49,10 +49,7 @@ namespace MascotaFeliz.App.Frontend
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();
-            });
+            IApplicationBuilder applicationBuilder = app.UseEndpoints(endpoints => endpoints.MapRazorPages());
         }
     }
 }
