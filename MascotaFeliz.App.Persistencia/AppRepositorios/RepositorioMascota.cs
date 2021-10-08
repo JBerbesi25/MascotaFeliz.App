@@ -18,6 +18,14 @@ namespace MascotaFeliz.App.Persistencia.AppRepositorios
                     };
                     
                  }
+
+        public Mascota Add(Mascota nuevaMascota)
+        {
+            nuevaMascota.Id=mascotas.Max(r => r.Id) +1;
+            mascotas.Add(nuevaMascota);
+            return nuevaMascota;
+        }
+
         public IEnumerable<Mascota> GetAll()
         {
 
