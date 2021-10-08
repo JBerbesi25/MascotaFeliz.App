@@ -12,7 +12,7 @@ namespace MascotaFeliz.App.Frontend.Pages
     public class EditModel : PageModel
     {
         private readonly IRepositorioMascota repositorioMascota;
-
+        [BindProperty]
         public Mascota Mascota { get; set; }
 
         public EditModel(IRepositorioMascota repositorioMascota)
@@ -29,6 +29,12 @@ namespace MascotaFeliz.App.Frontend.Pages
             else
                 return Page();
         }
+        public IActionResult OnPost()
+        {
+            Mascota=repositorioMascota.Update(Mascota);
+            return Page();
+        }
+
     }
 }
 
