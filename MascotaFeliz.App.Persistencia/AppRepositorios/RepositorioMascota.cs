@@ -16,12 +16,12 @@ namespace MascotaFeliz.App.Persistencia.AppRepositorios
                     new Mascota {Id=2, Nombre="Itachi", Propietario="angela", Especie="canino", Raza="pitbull"},
                     new Mascota {Id=3, Nombre="Corage", Propietario="isabel", Especie="felino", Raza="criollo"},
                     };
-                    
-                 }
+
+        }
 
         public Mascota Add(Mascota nuevaMascota)
         {
-            nuevaMascota.Id=mascotas.Max(r => r.Id) +1;
+            nuevaMascota.Id = mascotas.Max(r => r.Id) + 1;
             mascotas.Add(nuevaMascota);
             return nuevaMascota;
         }
@@ -29,22 +29,22 @@ namespace MascotaFeliz.App.Persistencia.AppRepositorios
         public IEnumerable<Mascota> GetAll()
         {
 
-         return mascotas;
+            return mascotas;
 
         }
-     public Mascota GetMascotaPorId(int MascotaId)
+        public Mascota GetMascotaPorId(int MascotaId)
         {
-            return mascotas.SingleOrDefault(m => m.Id==MascotaId);
+            return mascotas.SingleOrDefault(m => m.Id == MascotaId);
         }
         public Mascota Update(Mascota mascotaActualizada)
         {
-            var mascota= mascotas.SingleOrDefault(r => r.Id==mascotaActualizada.Id);
-            if(mascota!=null)
+            var mascota = mascotas.SingleOrDefault(r => r.Id == mascotaActualizada.Id);
+            if (mascota != null)
             {
-                mascota.Nombre=mascotaActualizada.Nombre;
-                mascota.Propietario=mascotaActualizada.Propietario;
-                mascota.Especie=mascotaActualizada.Especie;
-                mascota.Raza=mascotaActualizada.Raza;
+                mascota.Nombre = mascotaActualizada.Nombre;
+                mascota.Propietario = mascotaActualizada.Propietario;
+                mascota.Especie = mascotaActualizada.Especie;
+                mascota.Raza = mascotaActualizada.Raza;
             }
             return mascota;
         }
