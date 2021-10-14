@@ -15,13 +15,13 @@ namespace MascotaFeliz.App.Frontend
 
         public IEnumerable<Mascota> Mascotas { get; set; }
 
-        public ListModel(IRepositorioMascota repositorioMascota)
+        public ListModel()
         {
-            this.repositorioMascota = repositorioMascota;
+            this.repositorioMascota = new RepositorioMascota(new MascotaFeliz.App.Persistencia.AppContext());
         }
-        public void OnGet()
+        public void OnGet(string filtroBusqueda)
         {
-            Mascotas=repositorioMascota.GetAll();
+            Mascotas = repositorioMascota.GetAllMascotas();
         }
     }
 }

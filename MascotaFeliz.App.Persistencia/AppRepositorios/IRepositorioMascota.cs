@@ -5,12 +5,10 @@ namespace MascotaFeliz.App.Persistencia.AppRepositorios
 {
     public interface IRepositorioMascota
     {
-        IEnumerable<Mascota> GetAll();
-
-        //IEnumerable<Mascota> GetMascotaPorFiltro(string filtro);
-
-        Mascota GetMascotaPorId(int mascotaId);
-        Mascota Update(Mascota mascotaActualizada);
-        Mascota Add(Mascota nuevaMascota);
+      IEnumerable<Mascota> GetAllMascotas();
+        Mascota AddMascotas(Mascota nuevaMascota);
+        Mascota UpdateMascotas(Mascota mascotaActualizada);
+        void DeleteMascotas(int mascotaId);
+        Mascota GetMascotas(int mascotaId);
     }
  }

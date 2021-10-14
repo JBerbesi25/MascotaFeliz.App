@@ -9,19 +9,19 @@ using MascotaFeliz.App.Dominio;
 
 namespace MascotaFeliz.App.Frontend.Pages
 {
-    public class DetailsModel : PageModel
+    public class DetailsModelM : PageModel
     {
          private readonly IRepositorioMascota repositorioMascota;
 
         public Mascota Mascotas{ get; set;}
 
-        public DetailsModel(IRepositorioMascota repositorioMascota)
+        public DetailsModelM()
         {
-            this.repositorioMascota=repositorioMascota;
+            this.repositorioMascota=new RepositorioMascota(new MascotaFeliz.App.Persistencia.AppContext());
         }
         public IActionResult OnGet(int mascotaId)
         {
-            Mascotas = repositorioMascota.GetMascotaPorId(mascotaId);
+            Mascotas = repositorioMascota.GetMascotas(mascotaId);
             if(Mascotas==null)
             {
                 return RedirectToPage("./NotFound");

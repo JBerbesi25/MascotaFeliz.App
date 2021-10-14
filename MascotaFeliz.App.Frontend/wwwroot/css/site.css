@@ -77,8 +77,9 @@ body {
   color: rgb(19, 5, 146);
   text-align: center;
 }
-.row{
-  text-align: center;
-  width: 90%;
-  background-color: #1b6ec2;
+.imagen{
+  position:fixed;
+  width: 550px;
+  margin-left: 300px;
+  margin-top: 0;
 }

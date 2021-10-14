@@ -1,0 +1,86 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.ListVModel
+@{
+}
+<h1 class="visita">Datos de la Visita</h1>
+<table class="table">
+    <tr>
+
+        <td>
+            <h4>Id</h4>
+        </td>
+        <td>
+            <h4>Fecha y Hora</h4>
+        </td>
+        
+        <td>
+            <h4>Temperatura</h4>
+        </td>
+        <td>
+            <h4>Peso</h4>
+        </td>
+        <td>
+            <h4>F.Respiratoria</h4>
+        </td>
+        <td>
+            <h4>F.Cardiaca</h4>
+        </td>
+        <td>
+            <h4>Estado de Ánimo</h4>
+        </td>
+        <td>
+            <h4>Recomendaciones</h4>
+        </td>
+       
+        <td>
+            <h4>Detalle</h4>
+        </td>
+        <td>
+            <h4>Editar</h4>
+        </td>
+    </tr>
+    
+     @foreach (var visita in Model.Visitas)
+    {
+        <tr>
+            <td>
+                @visita.Id
+            </td>
+             <td>
+                @visita.Fecha_hora
+            </td>
+            <td>
+                @visita.Temperatura
+            </td>
+            <td>
+                @visita.Peso
+            </td>
+            <td>
+                @visita.FreRespiratoria
+            </td>
+            <td>
+                @visita.FreCardiaca
+            </td>
+            <td>
+                @visita.EstadoAnimo
+            </td>
+            <td>
+                @visita.Recomendaciones
+            </td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./DetailsV" asp-route-visitaId="@visita.Id">
+                    <i class="fas fa-info-circle"></i>
+                    Detalle
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./EditV" asp-route-visitaId="@visita.Id">
+                    <i class="fas fa-address-book fa-lg" aria-hidden="true"></i>
+                    Editar
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+<a asp-page=".\EditV" class="btn btn-primary">Crear Visita</a>

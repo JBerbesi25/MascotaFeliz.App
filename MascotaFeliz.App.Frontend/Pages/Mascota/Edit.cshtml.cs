@@ -9,21 +9,21 @@ using MascotaFeliz.App.Dominio;
 
 namespace MascotaFeliz.App.Frontend.Pages
 {
-    public class EditModel : PageModel
+    public class EditModelM : PageModel
     {
         private readonly IRepositorioMascota repositorioMascota;
         [BindProperty]
         public Mascota Mascota { get; set; }
 
-        public EditModel(IRepositorioMascota repositorioMascota)
+        public EditModelM()
         {
-            this.repositorioMascota = repositorioMascota;
+            this.repositorioMascota = new RepositorioMascota(new MascotaFeliz.App.Persistencia.AppContext());
         }
         public IActionResult OnGet(int? mascotaId)
         {
             if(mascotaId.HasValue)
             { 
-            Mascota = repositorioMascota.GetMascotaPorId(mascotaId.Value);
+            Mascota = repositorioMascota.GetMascotas(mascotaId.Value);
             }
             else 
             {
@@ -38,13 +38,17 @@ namespace MascotaFeliz.App.Frontend.Pages
         }
         public IActionResult OnPost()
         {
+              if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             if(Mascota.Id>0)
             { 
-            Mascota=repositorioMascota.Update(Mascota);
+            Mascota=repositorioMascota.UpdateMascotas(Mascota);
             }
             else
             {
-                repositorioMascota.Add(Mascota);
+                repositorioMascota.AddMascotas(Mascota);
             }
             return Page();
         }
