@@ -1,0 +1,34 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.DetailsVModel
+@{
+}
+<h2>@Model.Visita.Id</h2>
+<div>
+    Fecha: @Model.Visita.Fecha_hora
+</div>
+<div>
+    Veterinario: @Model._repoVeterinario.GetVeterinario(@Model.Visita.Veterinario).Nombres @Model._repoVeterinario.GetVeterinario(@Model.Visita.Veterinario).Apellidos
+</div>
+<div>
+    Mascota:@Model._repoMascota.GetMascotas(@Model.Visita.Mascota).Nombre
+</div>
+<div>
+    Temperatura: @Model.Visita.Temperatura
+</div>
+<div>
+    Peso: @Model.Visita.Peso
+</div>
+<div>
+    Frecuencia Respiratoria: @Model.Visita.FreRespiratoria
+</div>
+<div>
+    Frecuencia Cardiaca: @Model.Visita.FreCardiaca
+</div>
+<div>
+    Estado de Animo: @Model.Visita.EstadoAnimo
+</div>
+<div>
+    Recomendaciones: @Model.Visita.Recomendaciones
+</div>
+
+<a asp-page="./ListV" class="btn-default">Lista de Visitas</a>

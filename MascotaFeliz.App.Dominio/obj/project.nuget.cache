@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+7771h4MhpTbGQbyQ3r9jm7r63swqfeBwmho5JkjgIefXlVfo0YocNS4wshU0a61xHDTimI46z3Fc5djyGwqww==",
+  "dgSpecHash": "BxCJ4c9S6CJkzbujUQP2P7R8KUDuwC/KBjZtWrxWKrpfivL9ejXe72iGMHaWNXZLqRd1XrbaJVMvU9IhEFQviw==",
   "success": true,
-  "projectFilePath": "C:\\Veterinaria\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Veterinaria1\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\usuario\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

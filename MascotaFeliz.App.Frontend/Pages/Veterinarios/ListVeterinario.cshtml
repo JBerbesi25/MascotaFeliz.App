@@ -1,0 +1,79 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.ListVeterinarioModel
+@{
+}
+<body class="contenedor">
+<h1 class="mascotas">Veterinarios</h1>
+<div class="tabla">
+<table class="table">
+    <tr>
+        <td>
+            <h4>Id</h4>
+        </td>
+        <td>
+            <h4>Identificacion</h4>
+        </td>
+        <td>
+            <h4>Nombres</h4>
+        </td>
+        <td>
+            <h4>Apellidos</h4>
+        </td>
+        <td>
+            <h4>Telefono</h4>
+        </td>
+        <td>
+            <h4>Detalles</h4>
+        </td>
+        <td>
+            <h4>Editar</h4>
+        </td>
+        <th>
+            <h4>Eliminar</h4>
+        </th>
+    </tr>
+    @foreach (var veterinario in Model.Veterinarios)
+    {
+        <tr>
+            <td>
+                @veterinario.Id
+            </td>
+            <td>
+                @veterinario.Identificacion
+            </td>
+            <td>
+                @veterinario.Nombres
+            </td>
+            <td>
+                @veterinario.Apellidos
+            </td>
+            <td>
+                @veterinario.Telefono
+            </td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./DetailsVeterinario" asp-route-veterinarioId="@veterinario.Id">
+                    <i class="fas fa-info-circle"></i>
+                    Detalles
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./EditVeterinario" asp-route-veterinarioId="@veterinario.Id">
+                    <i class="fas fa-address-book fa-lg" aria-hidden="true"></i>
+                    Editar
+                </a>
+            </td>
+              <td>
+                <a class="btn btn-primary table-btn" asp-page="./DeleteVeterinario" asp-route-veterinarioId="@veterinario.Id">
+                    <i class="fas fa-address-book fa-lg" aria-hidden="true"></i>
+                    Eliminar
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<a asp-page=".\EditVeterinario" class="btn btn-primary">Crear</a>
+
+</div>
+</body>

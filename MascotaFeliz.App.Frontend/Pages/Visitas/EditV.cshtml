@@ -1,0 +1,137 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.EditVModel
+@{
+    
+}
+<br />
+<h2 class="text-info">Eliminar Visita</h2>
+<div class="border">
+    <form method="post">
+        <input type="hidden" asp-for="Visita.Id" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="container" style="padding: 50px;">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="Visita.Veterinario"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        @* <input asp-for="Visita.Veterinario" class="form-control"> *@
+                        <select class="form-control" name="veterinario">
+                            @foreach (var veterinario in Model.Veterinarios)
+                            {
+                                <option value="@veterinario.Id">@veterinario.Nombres @veterinario.Apellidos</option>
+                            }
+                        </select>
+                    </div>
+                    <span class="textdanger" asp-validation-for="Visita.Veterinario"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="Visita.Mascota"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        @* <input asp-for="Visita.Mascota" class="form-control"> *@
+                        <select class="form-control" name="mascota">
+                            @foreach (var mascota in Model.Mascotas)
+                            {
+                                <option value="@mascota.Id">@mascota.Nombre</option>
+                            }
+                        </select>
+                    </div>
+                    <span class="textdanger" asp-validation-for="Visita.Mascota"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="Visita.Fecha_hora"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input asp-for="Visita.Fecha_hora" class="form-control">
+                    </div>
+                    <span class="textdanger" asp-validation-for="Visita.Fecha_hora"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="Visita.Temperatura"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input asp-for="Visita.Temperatura" class="form-control">
+                    </div>
+                    <span class="textdanger" asp-validation-for="Visita.Temperatura"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="Visita.Peso"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input asp-for="Visita.Peso" class="form-control">
+                    </div>
+                    <span class="textdanger" asp-validation-for="Visita.Peso"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="Visita.FreRespiratoria"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input asp-for="Visita.FreRespiratoria" class="form-control">
+                    </div>
+                    <span class="textdanger" asp-validation-for="Visita.FreRespiratoria"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="Visita.FreCardiaca"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input asp-for="Visita.FreCardiaca" class="form-control">
+                    </div>
+                    <span class="textdanger" asp-validation-for="Visita.FreCardiaca"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="Visita.EstadoAnimo"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input asp-for="Visita.EstadoAnimo" class="form-control">
+                    </div>
+                    <span class="textdanger" asp-validation-for="Visita.EstadoAnimo"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="Visita.Recomendaciones"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input asp-for="Visita.Recomendaciones" class="form-control">
+                    </div>
+                    <span class="textdanger" asp-validation-for="Visita.Recomendaciones"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2 offset-sm-2">
+                        <button type="submit" class="btn btn-primary form-control">Guardar</button>
+                    </div>
+                    <div class="col-sm-2">
+                        <a asp-page="./ListV" class="btn btn-success form-control">Lista de Visitas</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

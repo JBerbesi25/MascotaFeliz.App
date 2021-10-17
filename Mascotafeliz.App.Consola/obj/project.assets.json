@@ -1512,6 +1512,9 @@
       "MascotaFeliz.App.Dominio/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "System.ComponentModel.Annotations": "5.0.0"
+        },
         "compile": {
           "bin/placeholder/MascotaFeliz.App.Dominio.dll": {}
         },
@@ -5801,11 +5804,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Veterinaria\\MascotaFeliz.App\\MascotaFeliz.App.Consola\\Mascotafeliz.App.Consola.csproj",
+      "projectUniqueName": "C:\\Veterinaria1\\MascotaFeliz.App\\MascotaFeliz.App.Consola\\Mascotafeliz.App.Consola.csproj",
       "projectName": "Mascotafeliz.App.Consola",
-      "projectPath": "C:\\Veterinaria\\MascotaFeliz.App\\MascotaFeliz.App.Consola\\Mascotafeliz.App.Consola.csproj",
+      "projectPath": "C:\\Veterinaria1\\MascotaFeliz.App\\MascotaFeliz.App.Consola\\Mascotafeliz.App.Consola.csproj",
       "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Veterinaria\\MascotaFeliz.App\\MascotaFeliz.App.Consola\\obj\\",
+      "outputPath": "C:\\Veterinaria1\\MascotaFeliz.App\\MascotaFeliz.App.Consola\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -5819,8 +5822,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Veterinaria\\MascotaFeliz.App\\MascotaFeliz.App.Persistencia\\MascotaFeliz.App.Persistencia.csproj": {
-              "projectPath": "C:\\Veterinaria\\MascotaFeliz.App\\MascotaFeliz.App.Persistencia\\MascotaFeliz.App.Persistencia.csproj"
+            "C:\\Veterinaria1\\MascotaFeliz.App\\MascotaFeliz.App.Persistencia\\MascotaFeliz.App.Persistencia.csproj": {
+              "projectPath": "C:\\Veterinaria1\\MascotaFeliz.App\\MascotaFeliz.App.Persistencia\\MascotaFeliz.App.Persistencia.csproj"
             }
           }
         }

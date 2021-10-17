@@ -53,6 +53,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Apellidos")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Direccion")
@@ -62,9 +63,11 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Nombres")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefono")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -121,10 +124,7 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                     b.Property<int>("FreRespiratoria")
                         .HasColumnType("int");
 
-                    b.Property<int?>("IdMascotaId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("IdPropietarioId")
+                    b.Property<int>("Mascota")
                         .HasColumnType("int");
 
                     b.Property<string>("Peso")
@@ -136,37 +136,24 @@ namespace MascotaFeliz.App.Persistencia.Migrations
                     b.Property<string>("Temperatura")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Veterinario")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
-
-                    b.HasIndex("IdMascotaId");
-
-                    b.HasIndex("IdPropietarioId");
 
                     b.ToTable("Visitas");
                 });
 
             modelBuilder.Entity("MascotaFeliz.App.Dominio.Mascota", b =>
                 {
-                    b.HasOne("MascotaFeliz.App.Dominio.Propietario", "Propietario")
-                        .WithMany()
+                    b.HasOne("MascotaFeliz.App.Dominio.Propietario", null)
+                        .WithMany("Mascotas")
                         .HasForeignKey("PropietarioId");
-
-                    b.Navigation("Propietario");
                 });
 
-            modelBuilder.Entity("MascotaFeliz.App.Dominio.Visita", b =>
+            modelBuilder.Entity("MascotaFeliz.App.Dominio.Propietario", b =>
                 {
-                    b.HasOne("MascotaFeliz.App.Dominio.Mascota", "IdMascota")
-                        .WithMany()
-                        .HasForeignKey("IdMascotaId");
-
-                    b.HasOne("MascotaFeliz.App.Dominio.Propietario", "IdPropietario")
-                        .WithMany()
-                        .HasForeignKey("IdPropietarioId");
-
-                    b.Navigation("IdMascota");
-
-                    b.Navigation("IdPropietario");
+                    b.Navigation("Mascotas");
                 });
 #pragma warning restore 612, 618
         }

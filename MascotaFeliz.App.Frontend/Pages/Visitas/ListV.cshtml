@@ -1,0 +1,85 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.ListVModel
+@{
+}
+<body class="contenedor">
+<h1 class="mascotas">Veterinarios</h1>
+<div class="tabla">
+<table class="table">
+    <tr>
+
+        <td>
+            <h4>Id</h4>
+        </td>
+        <td>
+            <h4>Fecha y Hora</h4>
+        </td>
+        <td>
+            <h4>Veterinario</h4>
+        </td>
+        <td>
+            <h4>Mascota</h4>
+        </td>
+        <td>
+            <h4>Temperatura</h4>
+        </td>
+         <td>
+            <h4>Peso</h4>
+        </td>
+        <td>
+            <h4>Detalle</h4>
+        </td>
+        <td>
+            <h4>Editar</h4>
+        </td>
+        <td>
+            <h4>Eliminar</h4>
+        </td>
+    </tr>
+    
+     @foreach (var visita in Model.Visitas)
+    {
+        <tr>
+            <td>
+                @visita.Id
+            </td>
+             <td>
+                @visita.Fecha_hora
+            </td>
+            <td>
+                @Model._repoVeterinario.GetVeterinario(visita.Veterinario).Nombres @Model._repoVeterinario.GetVeterinario(visita.Veterinario).Apellidos
+            </td>
+            <td>
+                @Model._repoMascota.GetMascotas(visita.Mascota).Nombre
+            </td>
+            <td>
+                @visita.Temperatura
+            </td>
+             <td>
+                @visita.Peso
+            </td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./DetailsV" asp-route-visitaId="@visita.Id">
+                    <i class="fas fa-info-circle"></i>
+                    Detalle
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./EditV" asp-route-visitaId="@visita.Id">
+                    <i class="fas fa-address-book fa-lg" aria-hidden="true"></i>
+                    Editar
+                </a>
+            </td>
+             <td>
+                <a class="btn btn-primary table-btn" asp-page="./DeleteV" asp-route-visitaId="@visita.Id">
+                    <i class="fas fa-address-book fa-lg" aria-hidden="true"></i>
+                    Eliminar
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+<a asp-page=".\EditV" class="btn btn-primary">Crear</a>
+</div>
+</body>

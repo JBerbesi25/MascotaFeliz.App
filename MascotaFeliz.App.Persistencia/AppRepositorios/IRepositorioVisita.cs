@@ -5,12 +5,10 @@ namespace MascotaFeliz.App.Persistencia.AppRepositorios
 {
     public interface IRepositorioVisita
     {
-         IEnumerable<Visita> GetAll();
-
-        //IEnumerable<Mascota> GetMascotaPorFiltro(string filtro);
-
-        Visita GetVisitaPorId(int visitaId);
-        Visita Update(Visita visitaActualizada);
-        Visita Add(Visita nuevaVisita);
+        IEnumerable<Visita> GetAllVisita();
+        Visita AddVisita(Visita nuevavisita);
+        Visita UpdateVisita(Visita visitaActualizada);
+        void DeleteVisita(int visitaId);
+        Visita GetVisita(int visitaId);
     }
 }

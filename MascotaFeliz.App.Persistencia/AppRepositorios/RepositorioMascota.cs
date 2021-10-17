@@ -27,7 +27,6 @@ private readonly AppContext _appContext;
                 {
                     MascotaEncontrada.Id =mascota.Id;
                     MascotaEncontrada.Nombre=mascota.Nombre;
-                    MascotaEncontrada.Propietario=mascota.Propietario;
                     MascotaEncontrada.Especie=mascota.Especie;
                     MascotaEncontrada.Raza=mascota.Raza;
 

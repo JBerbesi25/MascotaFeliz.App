@@ -1,0 +1,54 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.EditPropietariosModel
+@{
+    ViewData["Title"] = "Editar Propietario";
+}
+<body
+    style="background-image: url(/img/bgnuevam.jpg);background-position: center center;background-repeat: no-repeat;background-size: cover;background-attachment: fixed;">
+
+    <div class="col-lg-4 col-md-6 border p-4 shadow rounded float-right mr-4 bg-white mb-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-10">
+                @Html.Raw(@ViewData["Respuesta"])
+            </div>
+        </div>
+        <div class="">
+            <h3>Propietario</h3>
+        </div>
+        <form method="post">
+            <input type="hidden" asp-for="Propietarios.Id" />
+            <div class="form-group">
+                <label asp-for="Propietarios.Identificacion"></label>
+                <input asp-for="Propietarios.Identificacion" class="form-control" placeholder="">
+                <span class="text-danger" asp-validation-for="Propietarios.Identificacion"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Propietarios.Nombres"></label>
+                <input asp-for="Propietarios.Nombres" class="form-control">
+                <span class="text-danger" asp-validation-for="Propietarios.Nombres"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Propietarios.Apellidos"></label>
+                <input asp-for="Propietarios.Apellidos" class="form-control">
+                <span class="text-danger" asp-validation-for="Propietarios.Apellidos"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Propietarios.Telefono"></label>
+                <input asp-for="Propietarios.Telefono" class="form-control">
+                <span class="text-danger" asp-validation-for="Propietarios.Telefono"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Propietarios.Direccion"></label>
+                <input asp-for="Propietarios.Direccion" class="form-control">
+                <span class="text-danger" asp-validation-for="Propietarios.Direccion"></span>
+            </div>
+            <div class="d-flex justify-content-between form-online">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <a asp-page="./ListP" class="btn btn-outline-primary">Volver</a>
+            </div>            
+        </form>
+        
+    </div>
+    <div class="mb-4"></div>
+
+</body>

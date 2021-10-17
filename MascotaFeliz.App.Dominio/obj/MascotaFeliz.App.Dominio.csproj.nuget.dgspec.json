@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Veterinaria\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj": {}
+    "C:\\Veterinaria1\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj": {}
   },
   "projects": {
-    "C:\\Veterinaria\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj": {
+    "C:\\Veterinaria1\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Veterinaria\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj",
+        "projectUniqueName": "C:\\Veterinaria1\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj",
         "projectName": "MascotaFeliz.App.Dominio",
-        "projectPath": "C:\\Veterinaria\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj",
+        "projectPath": "C:\\Veterinaria1\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj",
         "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Veterinaria\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\obj\\",
+        "outputPath": "C:\\Veterinaria1\\MascotaFeliz.App\\MascotaFeliz.App.Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -35,6 +35,12 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "dependencies": {
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

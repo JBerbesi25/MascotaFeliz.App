@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MascotaFeliz.App.Dominio;
+using Microsoft.EntityFrameworkCore;
 
 namespace MascotaFeliz.App.Persistencia.AppRepositorios
 {
@@ -32,6 +33,7 @@ namespace MascotaFeliz.App.Persistencia.AppRepositorios
                     propietarioadicionado.Apellidos = propietario.Apellidos;
                     propietarioadicionado.Telefono = propietario.Telefono;
                     propietarioadicionado.Direccion = propietario.Direccion;
+                    propietarioadicionado.Mascotas = propietario.Mascotas;
 
                     _appContext.SaveChanges();
                 }
@@ -47,12 +49,12 @@ namespace MascotaFeliz.App.Persistencia.AppRepositorios
         }
         Propietario IRepositorioPropietario.GetPropietario(int propietarioId)
         {
-            return _appContext.Propietarios.FirstOrDefault(p => p.Id == propietarioId);
+            return _appContext.Propietarios.Where(p => p.Id == propietarioId).Include(p=>p.Mascotas).FirstOrDefault();
         } 
 
         IEnumerable<Propietario> IRepositorioPropietario.GetAllPropietario()
         {
-            return _appContext.Propietarios;
+            return _appContext.Propietarios.Include(p=>p.Mascotas);
         }
     }
 }

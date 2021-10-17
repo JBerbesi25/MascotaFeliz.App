@@ -63,8 +63,8 @@ body {
   margin-bottom: 60px;
 }
 .footer {
-  text-align: center;
   position: absolute;
+  text-align: center;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
@@ -78,8 +78,21 @@ body {
   text-align: center;
 }
 .imagen{
-  position:fixed;
-  width: 550px;
-  margin-left: 300px;
-  margin-top: 0;
+  padding: 0%;
+  position:static;
+  width: 70%;
+  margin-left: 200px;
+}
+.tabla{
+  background-color: #4a6e9cd7;
+  padding: 0%;
+  text-align: center;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+.fondo{
+  background:url(icono.jpg);
+}
+body.contenedor{
+  background-color: #c5c7d1c7;
 }
