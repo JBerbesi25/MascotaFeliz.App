@@ -3,25 +3,37 @@
 @{
 }
 
-<div class="row d-flex justify-content-center ">
-    <div class="">
-        <div class="border shadow rounded p-4" style="min-width: 300px;">
-            <div class="row">
-                <div class="col m-3">
-                    <h3>@Model.Mascotas.Nombre</h3>
-                    <p>
-                        <strong>Especie</strong>: @Model.Mascotas.Especie
-                    </p>
-                    <p>
-                        <strong>Raza</strong>: @Model.Mascotas.Raza
-                    </p>
-                    
+<body
+    style="background-image: url(/img/fondopaticas.jpg);background-position: center center;background-repeat: no-repeat;background-size: cover;background-attachment: fixed;">
+    <div class="row d-flex justify-content-center ">
+        <div class="">
+            <div class="border shadow rounded p-4 bg-light" style="min-width: 700px;">
+                <div class="row d-flex justify-content-center ">
+                    <div class="">
+                        <div class="border shadow rounded p-4" style="min-width: 300px;">
+                            <div class="row">
+                                <div class="col m-3">
+                                    <h3>@Model.Mascotas.Nombre</h3>
+
+                                    <p>
+                                        <strong>Especie</strong>: @Model.Mascotas.Especie
+                                    </p>
+                                    <p>
+                                        <strong>Raza</strong>: @Model.Mascotas.Raza
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-between m-3">
+                                <a asp-page="/Mascotas/List"
+                                    asp-route-propietarioId='@Html.Raw(@ViewData["propietario"])'
+                                    class="btn btn-outline-primary mt-4">Volver</a>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row d-flex justify-content-between m-3">
-                <a asp-page="/Mascotas/List" asp-route-propietarioId='@Html.Raw(@ViewData["propietario"])' class="btn btn-outline-primary mt-4">Volver</a>
-            </div>
-
         </div>
     </div>
-</div>
+</body>

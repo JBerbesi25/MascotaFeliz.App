@@ -2,78 +2,65 @@
 @model MascotaFeliz.App.Frontend.Pages.ListVeterinarioModel
 @{
 }
-<body class="contenedor">
-<h1 class="mascotas">Veterinarios</h1>
-<div class="tabla">
-<table class="table">
-    <tr>
-        <td>
-            <h4>Id</h4>
-        </td>
-        <td>
-            <h4>Identificacion</h4>
-        </td>
-        <td>
-            <h4>Nombres</h4>
-        </td>
-        <td>
-            <h4>Apellidos</h4>
-        </td>
-        <td>
-            <h4>Telefono</h4>
-        </td>
-        <td>
-            <h4>Detalles</h4>
-        </td>
-        <td>
-            <h4>Editar</h4>
-        </td>
-        <th>
-            <h4>Eliminar</h4>
-        </th>
-    </tr>
-    @foreach (var veterinario in Model.Veterinarios)
-    {
-        <tr>
-            <td>
-                @veterinario.Id
-            </td>
-            <td>
-                @veterinario.Identificacion
-            </td>
-            <td>
-                @veterinario.Nombres
-            </td>
-            <td>
-                @veterinario.Apellidos
-            </td>
-            <td>
-                @veterinario.Telefono
-            </td>
-            <td>
-                <a class="btn btn-primary table-btn" asp-page="./DetailsVeterinario" asp-route-veterinarioId="@veterinario.Id">
-                    <i class="fas fa-info-circle"></i>
-                    Detalles
-                </a>
-            </td>
-            <td>
-                <a class="btn btn-primary table-btn" asp-page="./EditVeterinario" asp-route-veterinarioId="@veterinario.Id">
-                    <i class="fas fa-address-book fa-lg" aria-hidden="true"></i>
-                    Editar
-                </a>
-            </td>
-              <td>
-                <a class="btn btn-primary table-btn" asp-page="./DeleteVeterinario" asp-route-veterinarioId="@veterinario.Id">
-                    <i class="fas fa-address-book fa-lg" aria-hidden="true"></i>
-                    Eliminar
-                </a>
-            </td>
-        </tr>
-    }
 
-</table>
+<body
+    style="background-image: url(/img/fondopaticas.jpg);background-position: center center;background-repeat: no-repeat;background-size: cover;background-attachment: fixed;">
+    <div class="d-flex justify-content-center">
+        <div class="col-md-12 border shadow p-4 rounded bg-light">
+            <div class="row d-flex justify-content-center">
+                <div class="col-6">
+                    @Html.Raw(@ViewData["Respuesta"])
+                </div>
+            </div>
+            <h4 class="mascotas">Veterinarios</h4>
+            <a asp-page=".\EditVeterinario" class="btn btn-primary mb-4">Agregar Veterinario</a>
+            <table id="tablaFacturas" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">IDENTIFICACION</th>
+                        <th scope="col">NOMBRES</th>
+                        <th scope="col">APELLIDOS</th>
+                        <th scope="col">DIRECCION</th>
+                        <th scope="col">TELEFONO</th>
+                        <th scope="col">TARJETA RPOFESIONAL</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var veterinario in Model.Veterinarios)
+                    {
+                        <tr>
+                            <td>@veterinario.Id</td>
+                            <td>@veterinario.Identificacion</td>
+                            <td>@veterinario.Nombres</td>
+                            <td>@veterinario.Apellidos</td>
+                            <td>@veterinario.Direccion</td>
+                            <td>@veterinario.Telefono</td>
+                            <td>@veterinario.TarjetaProfesional</td>
+                            <td class="p-1">
+                                <form method="POST" class="form-inline" id="@veterinario.Id">
+                                    <a class="btn btn-primary btn-sm mx-3" asp-page="./DetailsVeterinario"
+                                    asp-route-veterinarioId="@veterinario.Id" data-toggle="tooltip"
+                                    data-placement="left" title="Detalles">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a class="btn btn-success btn-sm mr-3" asp-page="./EditVeterinario"
+                                    asp-route-veterinarioId="@veterinario.Id" data-toggle="tooltip" data-placement="top"
+                                    title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-danger btn-sm " asp-page="./DeleteVeterinario"
+                                    asp-route-veterinarioId="@veterinario.Id">
+                                       <i class="fas fa-trash" aria-hidden="true"></i>
 
-<a asp-page=".\EditVeterinario" class="btn btn-primary">Crear</a>
-
-</div>
+                                    </a>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>

@@ -2,33 +2,53 @@
 @model MascotaFeliz.App.Frontend.Pages.DetailsVModel
 @{
 }
-<h2>@Model.Visita.Id</h2>
-<div>
-    Fecha: @Model.Visita.Fecha_hora
-</div>
-<div>
-    Veterinario: @Model._repoVeterinario.GetVeterinario(@Model.Visita.Veterinario).Nombres @Model._repoVeterinario.GetVeterinario(@Model.Visita.Veterinario).Apellidos
-</div>
-<div>
-    Mascota:@Model._repoMascota.GetMascotas(@Model.Visita.Mascota).Nombre
-</div>
-<div>
-    Temperatura: @Model.Visita.Temperatura
-</div>
-<div>
-    Peso: @Model.Visita.Peso
-</div>
-<div>
-    Frecuencia Respiratoria: @Model.Visita.FreRespiratoria
-</div>
-<div>
-    Frecuencia Cardiaca: @Model.Visita.FreCardiaca
-</div>
-<div>
-    Estado de Animo: @Model.Visita.EstadoAnimo
-</div>
-<div>
-    Recomendaciones: @Model.Visita.Recomendaciones
-</div>
 
-<a asp-page="./ListV" class="btn-default">Lista de Visitas</a>
+<body
+    style="background-image: url(/img/fondopaticas.jpg);background-position: center center;background-repeat: no-repeat;background-size: cover;background-attachment: fixed;">
+    <div class="row d-flex justify-content-center ">
+        <div class="">
+            <div class="border shadow rounded p-4 bg-light" style="min-width: 700px;">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-10">
+                        @Html.Raw(@ViewData["Respuesta"])
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m-3">
+                        <h2>@Model.Visita.Id</h2>
+                        <div>
+                            Fecha: @Model.Visita.Fecha_hora
+                        </div>
+                        <div>
+                            Veterinario: @Model._repoVeterinario.GetVeterinario(@Model.Visita.Veterinario).Nombres
+                            @Model._repoVeterinario.GetVeterinario(@Model.Visita.Veterinario).Apellidos
+                        </div>
+                        <div>
+                            Mascota:@Model._repoMascota.GetMascotas(@Model.Visita.Mascota).Nombre
+                        </div>
+                        <div>
+                            Temperatura: @Model.Visita.Temperatura
+                        </div>
+                        <div>
+                            Peso: @Model.Visita.Peso
+                        </div>
+                        <div>
+                            Frecuencia Respiratoria: @Model.Visita.FreRespiratoria
+                        </div>
+                        <div>
+                            Frecuencia Cardiaca: @Model.Visita.FreCardiaca
+                        </div>
+                        <div>
+                            Estado de Animo: @Model.Visita.EstadoAnimo
+                        </div>
+                        <div>
+                            Recomendaciones: @Model.Visita.Recomendaciones
+                        </div>
+
+                        <a asp-page="./ListV" class="btn-default">Lista de Visitas</a>
+                    </div>
+                </div>
+            </div>
+        </div>            
+    </div>
+</body>                        

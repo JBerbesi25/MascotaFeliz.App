@@ -3,7 +3,7 @@
 @{
 }
 <body
-    style="background-image: url(/img/bglista.png);background-position: center center;background-repeat: no-repeat;background-size: cover;background-attachment: fixed;">
+    style="background-image: url(/img/fondopaticas.jpg);background-position: center center;background-repeat: no-repeat;background-size: cover;background-attachment: fixed;">
 <div class="row d-flex justify-content-center">
     <div class="col-6">
         @Html.Raw(@ViewData["Respuesta"])
@@ -36,7 +36,7 @@
                             <td>@propietario.Nombres @propietario.Apellidos</td>
                             <td class="p-1">
                                 <form method="POST" class="form-inline" id="@mascota.Id">
-                                    <a class="btn btn-primary btn-sm mr-3" asp-page="/Propietarios/DetailsP"
+                                    <a class="btn btn-primary btn-sm mr-3" asp-page="/Mascotas/Details"
                                 asp-route-mascotaId="@mascota.Id" asp-route-propietarioId="@propietario.Id" data-toggle="tooltip" data-placement="right"
                                 title="Detalles">
                                         <i class="fas fa-eye"></i>

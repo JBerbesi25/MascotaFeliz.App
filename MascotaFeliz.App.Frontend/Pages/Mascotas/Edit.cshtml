@@ -1,10 +1,12 @@
 ﻿@page
 @model MascotaFeliz.App.Frontend.Pages.EditMascotasModel
 @{
-   ViewData["Title"] = "Editar Mascota";
+    ViewData["Title"] = "Editar Mascota";
 }
-<br /><body
-    style="background-image: url(/img/logo.jpg);background-position: center center;background-repeat: no-repeat;background-size: cover;background-attachment: fixed;">
+<br />
+
+<body
+    style="background-image: url(/img/mascotas.jpg);background-position: left center;background-repeat: no-repeat;background-size: cover;background-attachment: fixed;">
 
     <div class="col-lg-4 col-md-6 border p-4 shadow rounded float-right mr-4 bg-light">
         <div class="row d-flex justify-content-center">
@@ -13,17 +15,18 @@
             </div>
         </div>
         <div class="">
-            <h4>Propietario: @Model.propietario.Nombres @Model.propietario.Apellidos</h4><hr>
+            <h4>Propietario: @Model.propietario.Nombres @Model.propietario.Apellidos</h4>
+            <hr>
             <h4>Mascota</h4>
         </div>
         <form method="post">
             <input type="hidden" asp-for="Mascota.Id" />
-            <input type="hidden" asp-for="propietario.Id" name="propietarioId"/>
+            <input type="hidden" asp-for="propietario.Id" name="propietarioId" />
             <input type="hidden" asp-for="propietario.Nombres" />
             <input type="hidden" asp-for="propietario.Apellidos" />
             <input type="hidden" asp-for="propietario.Identificacion" />
             <input type="hidden" asp-for="propietario.Direccion" />
-            <input type="hidden" asp-for="propietario.Telefono"/>
+            <input type="hidden" asp-for="propietario.Telefono" />
             <div class="form-group">
                 <label asp-for="Mascota.Nombre"></label>
                 <input asp-for="Mascota.Nombre" class="form-control">
@@ -39,8 +42,15 @@
                 <input asp-for="Mascota.Raza" class="form-control">
                 <span class="text-danger" asp-validation-for="Mascota.Raza"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <div class="d-flex justify-content-between form-online">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <a asp-page="/Propietarios/DetailsP" asp-route-propietarioId='@Html.Raw(@ViewData["propietario"])'
+                class="btn btn-outline-primary mt-4">Volver</a>
+            </div>
+            <a asp-page="/Propietarios/DetailsP" asp-route-propietarioId='@Html.Raw(@ViewData["propietario"])'
+                class="btn btn-outline-primary mt-4">Volver</a>
         </form>
-        <a asp-page="/Propietarios/DetailsP" asp-route-propietarioId='@Html.Raw(@ViewData["propietario"])' class="btn btn-outline-primary mt-4">Volver</a>
+
     </div>
+<div class="mb-4"></div>
 </body>

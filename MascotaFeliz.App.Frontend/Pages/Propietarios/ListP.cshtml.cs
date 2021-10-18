@@ -26,8 +26,15 @@ namespace MascotaFeliz.App.Frontend
         }
          public void OnPost(int idpropietario)
         {
-            repositorioPropietario.DeletePropietario(idpropietario);
-            ViewData["Respuesta"] = Alerts.ShowAlert(Alert.Danger, "<span>Se eliminó el propietario seleccionado.</span>");
+            try
+            {
+                 repositorioPropietario.DeletePropietario(idpropietario);
+                 ViewData["Respuesta"] = Alerts.ShowAlert(Alert.Danger, "<span>Se eliminó el propietario seleccionado.</span>");
+            }
+            catch (System.Exception)
+            {
+                ViewData["Respuesta"] = Alerts.ShowAlert(Alert.Warning, "<span>No se puede eliminar el propietario porque tiene mascotas asignadas.</span>");
+            }
             Propietarios=repositorioPropietario.GetAllPropietario();            
         }
     }

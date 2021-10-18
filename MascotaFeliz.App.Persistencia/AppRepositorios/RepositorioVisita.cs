@@ -27,6 +27,8 @@ namespace MascotaFeliz.App.Persistencia.AppRepositorios
             if (VisitaEncontrada != null)
                 {
                     VisitaEncontrada.Id =visita.Id;
+                    VisitaEncontrada.Veterinario=visita.Veterinario;
+                    VisitaEncontrada.Mascota=visita.Mascota;
                     VisitaEncontrada.Fecha_hora=visita.Fecha_hora;
                     VisitaEncontrada.Temperatura=visita.Temperatura;
                     VisitaEncontrada.Peso=visita.Peso;

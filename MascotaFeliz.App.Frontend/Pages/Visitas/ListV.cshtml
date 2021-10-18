@@ -2,84 +2,69 @@
 @model MascotaFeliz.App.Frontend.ListVModel
 @{
 }
-<body class="contenedor">
-<h1 class="mascotas">Veterinarios</h1>
-<div class="tabla">
-<table class="table">
-    <tr>
+<body
+    style="background-image: url(/img/fondopaticas.jpg);background-position: center center;background-repeat: no-repeat;background-size: cover;background-attachment: fixed;">
+    <div class="d-flex justify-content-center">
+        <div class="col-md-10 border shadow p-4 rounded bg-light">
+            <div class="row d-flex justify-content-center">
+                <div class="col-6">
+                    @Html.Raw(@ViewData["Respuesta"])
+                </div>
+            </div>
+            <h4 class="mascotas">Visitas</h4>
+            <a asp-page=".\EditV" class="btn btn-primary mb-4">Agregar Visita</a>
+            <table id="tablaFacturas" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">VETERINARIO</th>
+                        <th scope="col">MASCOTA</th>
+                        <th scope="col">FECHA</th>
+                        <th scope="col">TEMPERATURA</th>
+                        <th scope="col">PESO</th>
+                       
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var visita in Model.Visitas)
+                    {
+                        <tr>
+                            <td>@visita.Id</td>
+                            <td>@Model._repoVeterinario.GetVeterinario(@visita.Veterinario).Nombres @Model._repoVeterinario.GetVeterinario(visita.Veterinario).Apellidos</td>
+                            <td>@Model._repoMascota.GetMascotas(@visita.Mascota).Nombre</td>
+                            <td>@visita.Fecha_hora</td>
+                            <td>@visita.Temperatura</td>
+                            <td>@visita.Peso</td>
+                            
+                            <td class="p-1">
+                                <form method="POST" class="form-inline" id="@visita.Id">
+                                    <a class="btn btn-primary btn-sm mx-3" asp-page="./DetailsV"
+                                    asp-route-visitaId="@visita.Id" data-toggle="tooltip"
+                                    data-placement="left" title="Detalles">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a class="btn btn-success btn-sm mr-3" asp-page="./EditV"
+                                    asp-route-visitaId="@visita.Id" data-toggle="tooltip" data-placement="top"
+                                    title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    @* <input type="hidden" value="@veterinario.Id" name="idveterinario">
+                                    <a class="btn btn-danger btn-sm" asp-page="./DeleteVeterinario" data-toggle="tooltip"
+                                    data-placement="right" title="Eliminar">
+                                        <i class="fas fa-trash"></i>
+                                    </a> *@
+                                    <a class="btn btn-danger btn-sm " asp-page="./DeleteV"
+                                    asp-route-visitaId="@visita.Id">
+                                       <i class="fas fa-trash" aria-hidden="true"></i>
 
-        <td>
-            <h4>Id</h4>
-        </td>
-        <td>
-            <h4>Fecha y Hora</h4>
-        </td>
-        <td>
-            <h4>Veterinario</h4>
-        </td>
-        <td>
-            <h4>Mascota</h4>
-        </td>
-        <td>
-            <h4>Temperatura</h4>
-        </td>
-         <td>
-            <h4>Peso</h4>
-        </td>
-        <td>
-            <h4>Detalle</h4>
-        </td>
-        <td>
-            <h4>Editar</h4>
-        </td>
-        <td>
-            <h4>Eliminar</h4>
-        </td>
-    </tr>
-    
-     @foreach (var visita in Model.Visitas)
-    {
-        <tr>
-            <td>
-                @visita.Id
-            </td>
-             <td>
-                @visita.Fecha_hora
-            </td>
-            <td>
-                @Model._repoVeterinario.GetVeterinario(visita.Veterinario).Nombres @Model._repoVeterinario.GetVeterinario(visita.Veterinario).Apellidos
-            </td>
-            <td>
-                @Model._repoMascota.GetMascotas(visita.Mascota).Nombre
-            </td>
-            <td>
-                @visita.Temperatura
-            </td>
-             <td>
-                @visita.Peso
-            </td>
-            <td>
-                <a class="btn btn-primary table-btn" asp-page="./DetailsV" asp-route-visitaId="@visita.Id">
-                    <i class="fas fa-info-circle"></i>
-                    Detalle
-                </a>
-            </td>
-            <td>
-                <a class="btn btn-primary table-btn" asp-page="./EditV" asp-route-visitaId="@visita.Id">
-                    <i class="fas fa-address-book fa-lg" aria-hidden="true"></i>
-                    Editar
-                </a>
-            </td>
-             <td>
-                <a class="btn btn-primary table-btn" asp-page="./DeleteV" asp-route-visitaId="@visita.Id">
-                    <i class="fas fa-address-book fa-lg" aria-hidden="true"></i>
-                    Eliminar
-                </a>
-            </td>
-        </tr>
-    }
-
-</table>
-<a asp-page=".\EditV" class="btn btn-primary">Crear</a>
-</div>
+                                    </a>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
